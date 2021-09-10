@@ -1,0 +1,44 @@
+html 
+{
+  background-color: #DDDDDD;
+}
+p
+{
+	color: #FFA500
+}
+p.block1
+{
+	color: #000000
+}
+body.head
+{
+  width: 670px;
+  margin: 0 auto;
+  background-color: #EEEEEE;
+  padding: 0 20px 20px 20px;
+  border: 5px dotted #FFA500;
+}
+body.hrefs
+{
+  margin: 0 auto;
+  background-color: #EEEEEE;
+  padding: 0 20px 20px 20px;
+  border: 5px dotted #FFA500;
+}
+body.null
+{
+  margin: 0 auto;
+  background-color: #EEEEEE;
+  padding: 0 20px 20px 20px;
+  border: 5px dotted #FFA500;
+}
+div.block1
+{
+	width: 200px; 
+    background: #ccc;
+    padding: 5px;
+    padding-right: 20px; 
+    border: solid 1px black; 
+    float: left;
+	
+}

@@ -1,9 +1,28 @@
 <html>
 <head>
 <title>My site</title>
+<link href="styles/day_style.css" rel="stylesheet" type="text/css">
 </head>
+
+
+<frameset rows="10%,90%" frameborder="no">
+  <frame src="head.html" name="TOP" scrolling="no" noresize>
+  <frameset cols="20%,80%">
+    <frame src="hrefs.html" noresize><!--здесь все ссылки-->
+    <frame src="null.html" name="content" scrolling="yes" noresize><!--здесь все отображается-->
+  </frameset>
+</frameset>
 <body>
-<p>Some text</p>
-<p>Some other text</p>
+<!--
+<div class="block1"> 
+<p class="block1"> - wow, how did i do it?
+<p class="block1"> - i don't know!
+<p class="block1"> - who is that?
+<p class="block1"> - it's me, you!
+</div>
+<p><a href="resume.html">Resume</a> - here is written how clever I am
+<p><a href="projects.html">Projects</a> - here you can see some progects 
+<p>Some cute cats:(later)
+-->
 </body>
 </html>
