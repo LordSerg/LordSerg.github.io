@@ -1,28 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>My site</title>
-<link href="styles/day_style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfoli</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+<body class="main-content">
+  <header class="section sec1 header active">
 
-
-<frameset rows="10%,90%" frameborder="no">
-  <frame src="head.html" name="TOP" scrolling="no" noresize>
-  <frameset cols="20%,80%">
-    <frame src="hrefs.html" noresize><!--здесь все ссылки-->
-    <frame src="null.html" name="content" scrolling="yes" noresize><!--здесь все отображается-->
-  </frameset>
-</frameset>
-<body>
-<!--
-<div class="block1"> 
-<p class="block1"> - wow, how did i do it?
-<p class="block1"> - i don't know!
-<p class="block1"> - who is that?
-<p class="block1"> - it's me, you!
-</div>
-<p><a href="resume.html">Resume</a> - here is written how clever I am
-<p><a href="projects.html">Projects</a> - here you can see some progects 
-<p>Some cute cats:(later)
--->
+  </header>
+  <main>
+    <section class="section sec1 home"></section>
+    <section class="section sec2 about"></section>
+    <section class="section sec3 portfolo"></section>
+    <section class="section sec4 blogs"></section>
+    <section class="section sec5 contacts"></section>
+  </main>
+  <div class="controlls">
+    <div class="control control-1 active-btn">
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="control control-2 " data-id="about">
+      <i class="fas fa-user"></i>
+    </div>
+    <div class="control control-3 " data-id="portfolio">
+      <i class="fas fa-briefcase"></i>
+    </div>
+    <div class="control control-4 " data-id="blogs">
+      <i class="fas fa-newspaper"></i>
+    </div>
+    <div class="control control-5 " data-it=contact>
+      <i class="fas fa-envelope"></i>
+    </div>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
