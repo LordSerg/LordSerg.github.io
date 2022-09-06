@@ -176,7 +176,6 @@ section {
 .header-content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (2, 1fr);
       grid-template-columns: repeat(2, 1fr);
   height: 100%;
 }
@@ -329,7 +328,6 @@ section {
 .about-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (2, 1fr);
       grid-template-columns: repeat(2, 1fr);
   padding-top: 3.5rem;
   padding-bottom: 5rem;
@@ -338,7 +336,6 @@ section {
 .about-container .right-about {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (2, 1fr);
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
@@ -466,7 +463,6 @@ section {
 .about-stats .progress-bars {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (2, 1fr);
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
@@ -545,7 +541,6 @@ section {
 .timeline {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (2, 1fr);
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   padding-bottom: 3rem;
@@ -615,7 +610,7 @@ section {
 .portfolios {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (3, 1fr);
+  -ms-grid-columns: (3 1fr);
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
