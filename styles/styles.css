@@ -196,6 +196,7 @@ section {
 .header-content {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   min-height: 100vh;
 }
@@ -289,6 +290,7 @@ section {
 .main-btn {
   border-radius: 30px;
   color: inherit;
+  background-color: var(--color-primary);
   font-weight: 600;
   position: relative;
   border: 1px solid var(--color-secondary);
@@ -348,6 +350,7 @@ section {
 .about-container {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   padding-top: 3.5rem;
   padding-bottom: 5rem;
@@ -356,6 +359,7 @@ section {
 .about-container .right-about {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
@@ -483,6 +487,7 @@ section {
 .about-stats .progress-bars {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
@@ -561,6 +566,7 @@ section {
 .timeline {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   padding-bottom: 3rem;
@@ -630,6 +636,7 @@ section {
 .portfolios {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
@@ -737,6 +744,7 @@ section {
 .blogs {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;

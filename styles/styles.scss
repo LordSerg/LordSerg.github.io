@@ -216,6 +216,7 @@ section{
 .main-btn{
     border-radius: 30px;
     color: inherit;
+    background-color: var(--color-primary);
     font-weight: 600;
     position: relative;
     border: 1px solid var(--color-secondary);
@@ -687,6 +688,8 @@ section{
             }
         }
         .submit-btn{
+            //background-color: var();
+            //color: var(--color-secondary);
             display: flex;
             justify-content: flex-start;
         }
