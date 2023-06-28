@@ -24,16 +24,16 @@
 }
 
 .light-mode {
-  --color-primary: #b1b1b1;
-  --color-secondary: #04d60e;
-  --color-white: #454e56;
+  --color-primary: #969696;
+  --color-secondary: rgb(44, 74, 173);
+  --color-white: #000744;
   --color-black: #000;
-  --color-grey0: #f8f8f8;
-  --color-grey-1: #6c7983;
-  --color-grey-2: #6c7983;
-  --color-grey-3: #6c7983;
-  --color-grey-4: #454e56;
-  --color-grey-5: #f8f8f8;
+  --color-grey0: #ffffff;
+  --color-grey-1: #4c555c;
+  --color-grey-2: #ffffff;
+  --color-grey-3: #383f44;
+  --color-grey-4: #171a1d;
+  --color-grey-5: #747a86;
   --color-grey-6: #12181b;
 }
 
@@ -101,6 +101,12 @@ section {
 }
 
 .sec5 {
+  display: none;
+  -webkit-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+}
+
+.sec6 {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
@@ -629,6 +635,16 @@ section {
 }
 
 .port-text {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.blog-text {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.riddle-text {
   padding: 2rem 0;
   text-align: center;
 }
