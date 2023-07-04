@@ -63,15 +63,13 @@ body {
     .section_8bit .wrapper::before{ bottom: -5px; left: -5px; }
     .section_8bit .wrapper::after{ bottom: -5px; right: -5px; }
 
-p.tab1 {
-    margin-left: 50px;
-}
-p.tab2 {
-    margin-left: 100px;
-}
-p.tab3 {
-    margin-left: 150px;
-}
-p.tab4 {
-    margin-left: 200px;
+
+canvas { 
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 800px;
+    max-height: 800px;
 }
