@@ -1,1 +1,1 @@
-[site](LordSerg.github.io)
+[site](https://lordserg.github.io/)
