@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>COMMON INFORMATION</title>
+  </head>
+  <body>
+	<script>
+      // create a function to update the date and time
+      function updateDateTime() {
+        // create a new `Date` object
+        const now = new Date();
+		const brth = new Date('2001-05-08T08:15:00');
+
+        // get the current date and time as a string
+        time = (now-brth);
+		const years = Math.floor(time/(1000*60*60*24*365))
+		time = time - years*(1000*60*60*24*365)
+		const days = Math.floor(time/(1000*60*60*24))
+		time = time - days*(1000*60*60*24)
+		const hours = Math.floor(time/(1000*60*60))
+		time = time - hours*(1000*60*60)
+		const minutes = Math.floor(time/(1000*60))
+		time = time - minutes*(1000*60)
+		const seconds = Math.floor(time/1000)
+        // update the `textContent` property of the `span` element with the `id` of `datetime`
+        document.querySelector('#datetime').textContent = years + ' years, '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds';
+      }
+
+      // call the `updateDateTime` function every second
+      setInterval(updateDateTime, 1000);
+    </script>
+	<h1>About me</h1><!--Autobiography-->
+    <p>Hi! My name is Serhii, or as my friends call me - Serega. As I write this text I am currently a student, a friend, a son and many more.</p>
+	<p>I was born on May 8, 2001. I live in Ukraine, the city of Dnipro.</p>
+	<p>I am frendly and comunicable guy.</p>
+	<h1>Education</h1>
+	<p>The <a href="MyDiploma.pdf">bachelor's degree</a> (with honor btw) on Applied Math I got in 2023 in Dnipro National University(DNU). During my student life I participated in <a href="">programming olympiads</a> as part of "Yellow Orange" team.</p>
+	<h3>Timeline</h3>
+	<p>2008 - 2019 are for primary school</p>
+	<p>2019 - 2023 are for bachelor's degree</p>
+	<p>2023 - now  are for master's degree</p>
+	<h1>Personal</h1>
+	<p>I am around <span id="datetime"></span> old</p>
+	<p>My height is 175 centimeters;</p>
+	<p>My favorite color is blue</p>
+	<p>I hate noisy places</p>
+	<!--<p>I like solving riddles and <a href="riddles.html">doing them as well;</a></p>-->
+	
+	<h1>Hobby</h1>
+	<p>I like spend time reading fantasy books.</p>
+	<p>Also i like solving puzzles, riddles and assemble construction figures.</p>
+	<p>I like play computer games (particularly <a href="https://www.factorio.com">factorio</a> and <a href="https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III">HOMM3</a>).</p>
+	<p></p>
+	<h2><a href="index.html">Back to main page</a></h2>
+  </body>
+</html>
