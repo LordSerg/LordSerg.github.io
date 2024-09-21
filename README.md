@@ -1,1 +1,1 @@
-[site](LordSerg.github.io) (\**click*\*)
+[site](https://lordserg.github.io/) (\**click*\*)
