@@ -11,14 +11,21 @@ h1,h2,h3,h4,h5{
 }
 
 .box {
-	display: flex;
+	/*display: flex;*/
 	flex-flow: row wrap;
 	border-style: solid;
-	max-width: 500px;
+	max-width: 900px;
+} 
+
+.main {
+	display: flex;
+	flex-flow: column nowrap;
 } 
 
 div{
-	margin: 2em;
+	margin: auto;
+	width: 75%;
+	padding: 20px;
 }
 .subtxt {
 	margin: 0% 5%;
