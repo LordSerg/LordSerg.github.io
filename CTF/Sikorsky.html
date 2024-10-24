@@ -1,31 +1,32 @@
 <!doctype html>
 <html>
     <head>
-	    <link href="superhackerstyle.css" rel="stylesheet" type="text/css">
+	    <link href="../superhackerstyle.css" rel="stylesheet" type="text/css">
+		<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
         <title>Sikorsky 2023 CTF</title>
     </head>
     <body>
-        <div>
+        <div class="main">
     	    <h1>Sikorsky 2023 CTF</h1>
-            <div>
+            <div class="box">
 	            <p>[<a href="https://www.infosec-kpi.in.ua/en-posts/2023/07/10/sikorskyctf2023.html">Sikorsky CTF 2023</a>] - link for the event;
-                <br>The flag pattern for this CTF is <b>sikorsky{...}</b>, where instead of "..." some secret text.</p>
+                <br>The flag pattern for this CTF is <b style="color: blue;">sikorsky{...}</b>, where instead of "..." some secret text.</p>
             </div>
-            <hr style="width:20%;text-align:center;">
-            <h2 style="text-align: center;">TalkingCats</h2>
-            <hr style="width:20%;text-align:center;">
-            <div>
+            <div class="box">
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">TalkingCats</h2>
+				<hr style="width:20%;text-align:center;">
 	            <p>As an input data we have pretext:</p>
 	            <p><b style="font-size: 30px">"</b><i>These kittens clearly want to say something, listen up.</i><b style="font-size: 30px">"</b></p>
 	            <p>And a video file:</p>
                 <div style="text-align: center;">
-	                <video width="640" height="800" controls>
+	                <video width=100% height=100% controls>
 		                <source src="Sikorsky/TalkingCats/talk.mp4" type="video/mp4">
 		                Your browser does not support the video tag.
 	                </video>
                 </div>
                 <hr style="width:20%;text-align:center;">
-	            <h3 style="text-align: center;">Solution</h3>
+	            <h2 style="text-align: center;">Solution</h2>
                 <hr style="width:20%;text-align:center;">
 	            <p>There were a few unsteganographic assumptions:</p>
 	            <p><b>(1)</b> In the first part of the video there is a sound, after that there is just a sequence of pictures without it, which means that I can compare individual pictures and the sounds that were with them. So the code for the second part of the video is such that each picture corresponds to the sound of the answer</p>
@@ -38,22 +39,11 @@
 	            <p>Which leads to 126 pares.</p>
 	            <p>And knowing full well that each character consists of 8 bits we get to the conclusion that there are not enough cat pictures.</p>
 	            <p>But anyway I gave this result a try and got this using online [<a href="https://www.rapidtables.com/convert/number/binary-to-ascii.html">bin to text</a>] converter:</p>
-                <div style="text-align: center;">
-	                <p>
-	                <picture>
-		                <source media="(min-width:650px)" src="Sikorsky/TalkingCats/talk1.jpg">
-		                <img src="Sikorsky/TalkingCats/talk1.jpg" alt="first attempt" style="width:auto;object-fit:contain;">
-	                </picture>
-	                </p>
-                </div>
+                <img src="Sikorsky/TalkingCats/talk1.jpg" style="width: 100%; height: 100%;">
 	            <p>Great! We got the first letter correct!</p>
 	            <p>Now the question is: timing. How long should be time interval  to look at a cat picture?</p>
 	            <p>Using some video editor i splitted the second part of the video in such way that every other different frame has a visible duration time. The point was to see, how random these intervals of each frame:</p>
-                <div style="text-align: center;">
-	                <p>
-		                <img src="Sikorsky/TalkingCats/talk2.jpg" alt="video dividing" style="object-fit:scale-down;max-width:auto;height:auto;">
-                    </p>
-                </div>
+				<img src="Sikorsky/TalkingCats/talk2.jpg" style="width: 100%; height: 100%;">
 	            <p>Here I noticed that there were only three types of delay:</p>
 	            <ul>
 		            <li>1/3 of a second</li>
@@ -64,17 +54,150 @@
 	            <p>Doing calculations:</p>
 	            <p>Now I have 76 binary pares which is 152 bits = 19 characters</p>
 	            <p>Perfect:</p>
-	            <p><picture>
-		            <source media="(max-width:650px)" src="Sikorsky/TalkingCats/talk3.jpg">
-		            <img src="Sikorsky/TalkingCats/talk3.jpg" alt="video dividing" style="width:50;object-fit:contain;">
-	            </picture></p>
+				<img src="Sikorsky/TalkingCats/talk3.jpg" style="width:100%; height: 100%;">
 	            <p>Bingo!</p>
             </div>
-	        <p></p>
-	        <p></p>
-	        <p></p>
-	        <p></p>
-	        <p></p>
+			<div class="box">
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">SuperPaskal</h2>
+				<hr style="width:20%;text-align:center;">
+				<dl>
+
+					<dt><p>As an input given the pretext:</p></dt>
+					<dd><p><b style="font-size: 30px">"</b><i>Kitten saved the flag with ID as in id.txt and now wants to get it back. Where are the flags issued?</i><b style="font-size: 30px">"</b></p></dd>
+					<dt><p>And two files: id.txt file itself and pascal source code:</p></dt>
+					<dt><h4>id.txt:</h4></dt>
+					<dd><p>
+						<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">
+flag.202.63.228.85.85.111.176.237.211.37.124.111.33.85.150.125.202.215.211.229.111.215.211.229.138.89.37.163</pre>
+					</p></dd>
+					<dt><h4>super.pas:</h4></dt>
+					<dd><p>
+						<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">program super;
+const
+  hope = 'i hope you dont study it now';
+var
+  flag: string;
+  free: array of byte;
+  i, j: integer;
+begin
+  writeln('SuperPascal: Free Flags Storage for Everyone!');
+  writeln;
+  write('Enter your flag: ');
+  readln(flag);
+
+  setlength(free, length(flag));
+  for i:=1 to length(flag) do
+  begin
+    j := ord(hope[i mod length(hope)]) mod length(flag);
+    while free[j] <> 0 do
+      j := (j + 1) mod length(flag);
+    free[j] := (ord(flag[i]) * 13) mod 256;
+  end;
+
+  write('Flag received with ID flag');
+  for i:=0 to length(flag)-1 do
+    write('.', free[i]);
+  writeln;
+end.</pre>
+					</p></dd>
+				</dl>
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">Solution</h2>
+				<hr style="width:20%;text-align:center;">
+				<p>Obviously there were a smart and time-efficient solution, but who cares!</p>
+				<p>First of all we nolice that in <b style="background-color: lightgray;">id.txt</b> every number can be an ASCII symbol:</p>
+				<p>With help of python we convert it into sequence of characters</p>
+				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">l=[202,63,228,85,85,111,176,237,211,37,124,111,33,85,150,125,202,215,211,229,111,215,211,229,138,89,37,163]
+result=""
+for num in l:
+	result+=chr(num)
+
+print(result)</pre>
+				<p>And the result is:</p>
+				<p style="overflow-wrap: break-word; background-color: lightgray;">Ê?äUUo°íÓ%|o!U}Ê×Óåo×ÓåY%£</p>
+				<p>OK, wrong direction, then let's analize the code and keep in mind that potentially the <b style="color: blue;">flag length = 28 characters</b>.</p>
+				<p>To make long story short:</p>
+				<ul>
+					<li>We have constant <b style="background-color: lightgray;">hope</b> as a cyphering key;</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">hope = 'i hope you dont study it now';</pre>
+					<li>Then we enter some text (it should be our flag);</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">readln(flag);</pre>
+					<li>Every character of <b style="background-color: lightgray;">hope</b> we convert to "int" according to ASCII table;</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">j = (int)hope[i % len(hope)] % len(flag)</pre>
+					<li>In case if <b style="background-color: lightgray;">free[j]</b> is not inicialized - init it with number:</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">free[j] := (ord(flag[i]) * 13) mod 256;</pre>
+					<li>Output the result</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">write('.', free[i]);</pre>
+				</ul>
+				<p>Sooo the numbers that we have in <b style="background-color: lightgray;">id.txt</b> is a result of this program.</p>
+				<p>Let's reverce first few chars step-by-step, then we'll write an algorithm and see what it will bring us.</p>
+				<ul>
+					<li><b style="background-color: lightgray;">flag[1]</b> := <b style="background-color: lightgray;">x</b> //for shortness</li>
+					<li>hope[1] = ' ' = 32(ASCII)</li>
+					<li>j := 32 % 28 = 4</li>
+					<li>free[4] == 0 => free[4] := (<b style="background-color: lightgray;">x</b> * 13) % 256</li>
+					<li>From id.txt: free[4] = 85</li>
+					<li>Our equasion to solve: (<b style="background-color: lightgray;">x</b> * 13) % 256 = 85</li>
+					<li><b style="background-color: lightgray;">x</b> = (n*256+85)/13, where n is natural number</li>
+					<li>if n = 1 -> 256+85=341 is not divisible by 13</li>
+					<li>if n = 2 -> 512+85=597 is not divisible by 13</li>
+					<li>if n = 3 -> 768+85=853 is not divisible by 13</li>
+					<li>if n = 4 -> 1024+85=1109 is not divisible by 13</li>
+					<li>if n = 5 -> 1280+85=1365 is divisible by 13</li>
+					<li>1365/13 = 105 = 'i'</li>
+					<li>so the <b style="background-color: lightgray;">flag[1]</b> = 'i'</li>
+				</ul>
+				<p>To do this for every element I wrote a python script:</p>
+				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">free_not_free=[202,63,228,85,85,111,176,237,211,37,124,111,33,85,150,125,202,215,211,229,111,215,211,229,138,89,37,163]
+free=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+hope = 'i hope you dont study it now'
+flag=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+for i in range(0,28):
+	j = ord(hope[i % 28]) % 28
+	while free[j] != 0:
+		j = (j+1)%28
+	n=0
+	while (n*256+free_not_free[j])%13 != 0:
+		n=n+1
+	flag[i%28] = (n*256+free_not_free[j])//13
+	free[j] = (n*256+free_not_free[j])//13
+	
+for i in range(0,28):
+	print(chr(flag[i]),end="")
+					</pre>
+
+				<p>And we have our answer:</p>
+				<p style="background-color: lightgray;">sikorsky{party_like_in_1992}</p>
+				<hr style="width:20%;text-align:center;">
+				<p>P.S.: in original pascal code it seem that there is a mistake in the last cycle - it stats with "0" and goes to "len(free)-1".</p>
+				<p>In Pascal array indeces start with 1, so it should be:</p>
+				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">...
+for i:=1 to length(flag) do
+...</pre>
+			</div>
+
+
+
+
+			<div class="box">
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">QuantumQuadray</h2>
+				<hr style="width:20%;text-align:center;">
+				<p></p>
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">Solution</h2>
+				<hr style="width:20%;text-align:center;">
+			</div>
+			<div class="box">
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">Seashell</h2>
+				<hr style="width:20%;text-align:center;">
+				<p></p>
+				<hr style="width:20%;text-align:center;">
+				<h2 style="text-align: center;">Solution</h2>
+				<hr style="width:20%;text-align:center;">
+			</div>
             <h1 class="biglinks"><a href="index.html">Back to CTF main page</a></h1>
         </div>
     </body>
