@@ -134,19 +134,20 @@ print(result)</pre>
 				<p>Let's reverce first few chars step-by-step, then we'll write an algorithm and see what it will bring us.</p>
 				<ul>
 					<li><b style="background-color: lightgray;">flag[1]</b> := <b style="background-color: lightgray;">x</b> //for shortness</li>
-					<li>hope[1] = ' ' = 32(ASCII)</li>
-					<li>j := 32 % 28 = 4</li>
-					<li>free[4] == 0 => free[4] := (<b style="background-color: lightgray;">x</b> * 13) % 256</li>
-					<li>From id.txt: free[4] = 85</li>
-					<li>Our equasion to solve: (<b style="background-color: lightgray;">x</b> * 13) % 256 = 85</li>
-					<li><b style="background-color: lightgray;">x</b> = (n*256+85)/13, where n is natural number</li>
-					<li>if n = 1 -> 256+85=341 is not divisible by 13</li>
-					<li>if n = 2 -> 512+85=597 is not divisible by 13</li>
-					<li>if n = 3 -> 768+85=853 is not divisible by 13</li>
-					<li>if n = 4 -> 1024+85=1109 is not divisible by 13</li>
-					<li>if n = 5 -> 1280+85=1365 is divisible by 13</li>
-					<li>1365/13 = 105 = 'i'</li>
-					<li>so the <b style="background-color: lightgray;">flag[1]</b> = 'i'</li>
+					<li>hope[1] = 'i' = 105(ASCII)</li>
+					<li>j := 105 % 28 = 21</li>
+					<li>free[j] = free[21] == 0 => free[21] := (<b style="background-color: lightgray;">x</b> * 13) % 256</li>
+					<li>From <b style="background-color: lightgray;">id.txt</b>: free[21] = 215</li>
+					<li>Our equasion to solve: (<b style="background-color: lightgray;">x</b> * 13) % 256 = 215</li>
+					<li><b style="background-color: lightgray;">x</b> = (n*256+215)/13, where n is natural number</li>
+					<li>if n = 0 -> 0 + 215 = 215 is not divisible by 13</li>
+					<li>if n = 1 -> 256 + 215 = 471 is not divisible by 13</li>
+					<li>if n = 2 -> 512 + 215 = 727 is not divisible by 13</li>
+					<li>if n = 3 -> 768 + 215 = 983 is not divisible by 13</li>
+					<li>if n = 4 -> 1024 + 215 = 1239 is not divisible by 13</li>
+					<li>if n = 5 -> 1280 + 215 = 1495 is divisible by 13</li>
+					<li>1495/13 = 115 = 's'</li>
+					<li>so the <b style="background-color: lightgray;">flag[1]</b> = 's'</li>
 				</ul>
 				<p>To do this for every element I wrote a python script:</p>
 				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">free_not_free=[202,63,228,85,85,111,176,237,211,37,124,111,33,85,150,125,202,215,211,229,111,215,211,229,138,89,37,163]
@@ -169,12 +170,6 @@ for i in range(0,28):
 
 				<p>And we have our answer:</p>
 				<p style="background-color: lightgray;">sikorsky{party_like_in_1992}</p>
-				<hr style="width:20%;text-align:center;">
-				<p>P.S.: in original pascal code it seem that there is a mistake in the last cycle - it stats with "0" and goes to "len(free)-1".</p>
-				<p>In Pascal array indeces start with 1, so it should be:</p>
-				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">...
-for i:=1 to length(flag) do
-...</pre>
 			</div>
 
 
