@@ -28,11 +28,14 @@
                 <hr style="width:20%;text-align:center;">
 	            <h2 style="text-align: center;">Solution</h2>
                 <hr style="width:20%;text-align:center;">
-	            <p>There were a few unsteganographic assumptions:</p>
-	            <p><b>(1)</b> In the first part of the video there is a sound, after that there is just a sequence of pictures without it, which means that I can compare individual pictures and the sounds that were with them. So the code for the second part of the video is such that each picture corresponds to the sound of the answer</p>
-	            <p><b>(2)</b> Open mouth = 1, closed mouth = 0; Сompose the answer in binary form from zeros and ones and convert it to UTF-8</p>
-	            <p><b>(3)</b> As an assumption<b>(2)</b>, but now we pay attention to the interval: some pictures have long durations, the others have short one. Let's say we will look at the image every 0.1 seconds and record a binary pair. The longer the same image goes, the more times we will record the same binary pair</p>
-	            <p><b>(4)</b> If all of the above ideas are failed - I can always use some steganography magic</p>
+	            <p>There were a few un steganographic assumptions:</p>
+				<ol>
+
+					<li>In the first part of the video there is a sound, after that there is just a sequence of pictures without it, which means that I can compare individual pictures and the sounds that were with them. So the code for the second part of the video is such that each picture corresponds to the sound of the answer</li>
+					<li>Open mouth = 1, closed mouth = 0; Сompose the answer in binary form from zeros and ones and convert it to UTF-8</li>
+					<li>As an assumption<b>(2)</b>, but now we pay attention to the interval: some pictures have long durations, the others have short one. Let's say we will look at the image every 0.1 seconds and record a binary pair. The longer the same image goes, the more times we will record the same binary pair</li>
+					<li>If all of the above ideas are failed - I can always use some steganography magic</li>
+				</ol>
 	            <p>------</p>
 	            <p>The <b>(1)</b>st idea gave nothing but some spooky noises, so that idea goes to trash bin.</p>
 	            <p><b>(2)</b>nd idea gave me some hope until i realised that there were only 63 different frames!</p>
@@ -56,6 +59,7 @@
 	            <p>Perfect:</p>
 				<img src="Sikorsky/TalkingCats/talk3.jpg" style="width:100%; height: 100%;">
 	            <p>Bingo!</p>
+				<p style="background-color: lightgray;">sikorsky{rusni_...}</p>
             </div>
 			<div class="box">
 				<hr style="width:20%;text-align:center;">
@@ -106,7 +110,7 @@ end.</pre>
 				<h2 style="text-align: center;">Solution</h2>
 				<hr style="width:20%;text-align:center;">
 				<p>Obviously there were a smart and time-efficient solution, but who cares!</p>
-				<p>First of all we nolice that in <b style="background-color: lightgray;">id.txt</b> every number can be an ASCII symbol:</p>
+				<p>First of all we notice that in <b style="background-color: lightgray;">id.txt</b> every number can be an ASCII symbol:</p>
 				<p>With help of python we convert it into sequence of characters</p>
 				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">l=[202,63,228,85,85,111,176,237,211,37,124,111,33,85,150,125,202,215,211,229,111,215,211,229,138,89,37,163]
 result=""
@@ -116,29 +120,29 @@ for num in l:
 print(result)</pre>
 				<p>And the result is:</p>
 				<p style="overflow-wrap: break-word; background-color: lightgray;">Ê?äUUo°íÓ%|o!U}Ê×Óåo×ÓåY%£</p>
-				<p>OK, wrong direction, then let's analize the code and keep in mind that potentially the <b style="color: blue;">flag length = 28 characters</b>.</p>
+				<p>OK, wrong direction, then let's analyze the code and keep in mind that potentially the <b style="color: blue;">flag length = 28 characters</b>.</p>
 				<p>To make long story short:</p>
 				<ul>
-					<li>We have constant <b style="background-color: lightgray;">hope</b> as a cyphering key;</li>
+					<li>We have constant <b style="background-color: lightgray;">hope</b> as a ciphering key;</li>
 					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">hope = 'i hope you dont study it now';</pre>
 					<li>Then we enter some text (it should be our flag);</li>
 					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">readln(flag);</pre>
 					<li>Every character of <b style="background-color: lightgray;">hope</b> we convert to "int" according to ASCII table;</li>
 					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">j = (int)hope[i % len(hope)] % len(flag)</pre>
-					<li>In case if <b style="background-color: lightgray;">free[j]</b> is not inicialized - init it with number:</li>
+					<li>If <b style="background-color: lightgray;">free[j]</b> is not initialized, initialize it with a number:</li>
 					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">free[j] := (ord(flag[i]) * 13) mod 256;</pre>
 					<li>Output the result</li>
 					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">write('.', free[i]);</pre>
 				</ul>
 				<p>Sooo the numbers that we have in <b style="background-color: lightgray;">id.txt</b> is a result of this program.</p>
-				<p>Let's reverce first few chars step-by-step, then we'll write an algorithm and see what it will bring us.</p>
+				<p>Let's reverse first few chars step-by-step, then we'll write an algorithm and see what it will bring us.</p>
 				<ul>
 					<li><b style="background-color: lightgray;">flag[1]</b> := <b style="background-color: lightgray;">x</b> //for shortness</li>
 					<li>hope[1] = 'i' = 105(ASCII)</li>
 					<li>j := 105 % 28 = 21</li>
 					<li>free[j] = free[21] == 0 => free[21] := (<b style="background-color: lightgray;">x</b> * 13) % 256</li>
 					<li>From <b style="background-color: lightgray;">id.txt</b>: free[21] = 215</li>
-					<li>Our equasion to solve: (<b style="background-color: lightgray;">x</b> * 13) % 256 = 215</li>
+					<li>Our equation to solve: (<b style="background-color: lightgray;">x</b> * 13) % 256 = 215</li>
 					<li><b style="background-color: lightgray;">x</b> = (n*256+215)/13, where n is natural number</li>
 					<li>if n = 0 -> 0 + 215 = 215 is not divisible by 13</li>
 					<li>if n = 1 -> 256 + 215 = 471 is not divisible by 13</li>
@@ -171,19 +175,122 @@ for i in range(0,28):
 				<p>And we have our answer:</p>
 				<p style="background-color: lightgray;">sikorsky{party_like_in_1992}</p>
 			</div>
-
-
-
-
 			<div class="box">
 				<hr style="width:20%;text-align:center;">
 				<h2 style="text-align: center;">QuantumQuadray</h2>
 				<hr style="width:20%;text-align:center;">
-				<p></p>
+				<dl>
+					<dt><p>As an input given the pretext:</p></dt>
+					<dd><p><b style="font-size: 30px">"</b><i>The algorithms of the future are also suitable for the systems of the past.</i><b style="font-size: 30px">"</b></p></dd>
+					<dt><p>And two files: output.txt file and python source code.</p></dt>
+					<dt><h4>output.txt:</h4></dt>
+					<dd><p>
+						<pre class="prettyprint" style=" overflow-x: auto; background-color: lightgray;">
+pub_key = [35503, 76468, 505235, 125231, 620315, 408002, 481981, 702393]
+ct = [1891308, 1904411, 2386392, 2794394, 1188915, 1891308, 2386392, 2029642, 2511623, 1188915, 1814840, 989705, 1817329, 1766077, 2222842, 1332859, 630466, 2092001, 2414390, 1766077, 1202018, 1038468, 2312413, 706934, 1332859, 630466, 2092001, 2437644, 1102296]</pre>
+					</p></dd>
+					<dt><h4>chall.sage:</h4></dt>
+					<dd><p>
+						<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">from secrets import priv_key
+from random import randint
+
+with open('flag.txt') as f:
+    FLAG = f.read()
+
+F_bin = [bin(ord(char))[2:].zfill(8) for char in FLAG]
+
+assert len(priv_key) == 8
+
+q = randint(sum(priv_key)+1,sum(priv_key)*5)
+while True:
+    r = randint(2,priv_key[-1]-1)
+    if gcd(r,q) == 1:
+        break
+
+pub_key = [(elem*r)%q for elem in priv_key]
+print(f"pub_key = {pub_key}")
+
+ct = []
+for c in F_bin:
+    sum = 0
+    for pos, bit in enumerate(c):
+        sum += pub_key[pos] * int(bit)
+    ct.append(sum)
+
+print(f"ct = {ct}")</pre>
+					</p></dd>
+				</dl>
 				<hr style="width:20%;text-align:center;">
 				<h2 style="text-align: center;">Solution</h2>
 				<hr style="width:20%;text-align:center;">
+				<p>In overview it seems that this task is very similar to the "SuperPaskal"</p>
+				<p>Let's analyze the code</p>
+				<ul>
+					<li>Script reads the flag</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">FLAG = f.read()</pre>
+					<li>Converts it to array of special 8-digit numbers</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">F_bin = [bin(ord(char))[2:].zfill(8) for char in FLAG]</pre>
+					<li>generate private and public key, outputting the public one (we have it in <b style = "background-color: lightgray;">output.txt</b>)</li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">print(f"pub_key = {pub_key}")</pre>
+					<li>For each element of <b style = "background-color: lightgray;">F_bin</b> calculate <b style = "background-color: lightgray;">sum</b></li>
+					<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">sum += pub_key[pos] * int(bit)</pre>
+					<li>Output the list of <b style = "background-color: lightgray;">sum</b>s in <b style = "background-color: lightgray;">output.txt</b></li>
+				</ul>
+				<p>Things to notice:</p>
+				<ol>
+					<li>In code we don't care what private key is and how public key was made - we already have it.</li>
+					<li>The length of the flag is probably = length of <b style = "background-color: lightgray;">ct</b> = 29 characters</li>
+				</ol>
+				<h4>Now it's time to figure out, how exactly <b style = "background-color: lightgray;">F_bit</b> is formed and what exactly each element of it is?</h4>
+				<p>Let's tear this monster apart </p>
+				<pre class="prettyprint" style=" overflow-x: auto; background-color: lightgray;">[bin(ord(char))[2:].zfill(8) for char in FLAG]</pre>
+				<ul>
+					<li>[<b style = "background-color: lightgray;">for char in FLAG</b>] - tells us that we take each character and operate with it as <b style = "background-color: lightgray;">char</b></li>
+					<li>[<b style = "background-color: lightgray;">ord(char)</b>] - convert character to integer according to ASCII table</li>
+					<li>[<b style = "background-color: lightgray;">bin(ord(char))</b>] - convert it to binary string like this <b style = "background-color: lightgray;">"0b11001100"</b></li>
+					<li>[<b style = "background-color: lightgray;">bin(ord(char))[2:]</b>] - get rid of <b style = "background-color: lightgray;">"0b"</b> part</li>
+					<li>[<b style = "background-color: lightgray;">bin(ord(char))[2:].zfill(8)</b>] - add zeros at the beginning so the string length = 8</li>
+				</ul>
+				<p>Great! Every element of <b style = "background-color: lightgray;">F_bin</b> is 8-character string, that consists of ones and zeros</p>
+				<h4>Little bit about this part: </h4>
+				<pre class="prettyprint" style=" overflow-x: auto; background-color: lightgray;">
+for pos, bit in enumerate(c):
+	sum += pub_key[pos] * int(bit)</pre>
+				<ul>
+					<li><b style = "background-color: lightgray;">enumerate()</b> - adds counter to our list => <b style = "background-color: lightgray;">pos</b> is index</li>
+					<li>Variable <b style = "background-color: lightgray;">sum</b> is a combination of elements of <b style = "background-color: lightgray;">pub_key</b></li>
+				</ul>
+				<p>To solve this puzzle we should:</p>
+				<ol>
+					<li>Find every combination of the <b style = "background-color: lightgray;">pub_key</b> elements (there are only 256 of them)</li>
+					<li>Compare them with elements of <b style = "background-color: lightgray;">ct</b> to get binary representation of them</li>
+					<li>Convert binaries back to characters</li>
+					<li>Print result</li>
+				</ol>
+				<pre class="prettyprint" style=" overflow-x: auto; background-color: lightgray;">
+#unchanged variables
+pub_key = [35503, 76468, 505235, 125231, 620315, 408002, 481981, 702393]
+ct = [1891308, 1904411, 2386392, 2794394, 1188915, 1891308, 2386392, 2029642, 2511623, 1188915, 1814840, 989705, 1817329, 1766077, 2222842, 1332859, 630466, 2092001, 2414390, 1766077, 1202018, 1038468, 2312413, 706934, 1332859, 630466, 2092001, 2437644, 1102296]
+
+every_comb=[]
+#take every combination
+for i in range(256):
+	sum=0
+	for (pos, el) in enumerate((bin(i)[2:].zfill(8))):
+		sum+=pub_key[pos]*int(el)
+	every_comb.append(sum)
+
+#compare with "ct", convrt to char and print
+for i in ct:
+	#find index, convert to binary, convert to int, convert to char
+	print(chr(int(bin(every_comb.index(i))[2:],2)),end="")
+				</pre>
+				<p>As a result we have following string:</p>
+				<pre class="prettyprint" style=" overflow-x: auto; background-color: lightgray;">
+sikorsky{r3duc710n_ch4mp10n}</pre>
 			</div>
+
+
 			<div class="box">
 				<hr style="width:20%;text-align:center;">
 				<h2 style="text-align: center;">Seashell</h2>
