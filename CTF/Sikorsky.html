@@ -137,8 +137,8 @@ print(result)</pre>
 				<p>Sooo the numbers that we have in <b style="background-color: lightgray;">id.txt</b> is a result of this program.</p>
 				<p>Let's reverse first few chars step-by-step, then we'll write an algorithm and see what it will bring us.</p>
 				<ul>
-					<li><b style="background-color: lightgray;">flag[1]</b> := <b style="background-color: lightgray;">x</b> //for shortness</li>
-					<li>hope[1] = 'i' = 105(ASCII)</li>
+					<li><b style="background-color: lightgray;">flag[0]</b> := <b style="background-color: lightgray;">x</b> //for shortness</li>
+					<li>hope[0] = 'i' = 105(ASCII)</li>
 					<li>j := 105 % 28 = 21</li>
 					<li>free[j] = free[21] == 0 => free[21] := (<b style="background-color: lightgray;">x</b> * 13) % 256</li>
 					<li>From <b style="background-color: lightgray;">id.txt</b>: free[21] = 215</li>
@@ -151,7 +151,7 @@ print(result)</pre>
 					<li>if n = 4 -> 1024 + 215 = 1239 is not divisible by 13</li>
 					<li>if n = 5 -> 1280 + 215 = 1495 is divisible by 13</li>
 					<li>1495/13 = 115 = 's'</li>
-					<li>so the <b style="background-color: lightgray;">flag[1]</b> = 's'</li>
+					<li>so the <b style="background-color: lightgray;">flag[0]</b> = 's'</li>
 				</ul>
 				<p>To do this for every element I wrote a python script:</p>
 				<pre class="prettyprint" style="overflow-x: auto; background-color: lightgray;">free_not_free=[202,63,228,85,85,111,176,237,211,37,124,111,33,85,150,125,202,215,211,229,111,215,211,229,138,89,37,163]
@@ -239,7 +239,7 @@ print(f"ct = {ct}")</pre>
 				<p>Things to notice:</p>
 				<ol>
 					<li>In code we don't care what private key is and how public key was made - we already have it.</li>
-					<li>The length of the flag is probably = length of <b style = "background-color: lightgray;">ct</b> = 29 characters</li>
+					<li>The length of the flag is probably = length of <b style = "background-color: lightgray;">ct</b> = 28 characters</li>
 				</ol>
 				<h4>Now it's time to figure out, how exactly <b style = "background-color: lightgray;">F_bit</b> is formed and what exactly each element of it is?</h4>
 				<p>Let's tear this monster apart </p>
