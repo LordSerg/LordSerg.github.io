@@ -21,6 +21,13 @@ h1,h2,h3,h4,h5{
 	flex-flow: row wrap;
 	border-style: solid;
 	max-width: 600px;
+	min-width: 400px;
+} 
+
+.box3 {
+	flex-flow: row wrap;
+	border-style: solid;
+	max-width: 800px;
 } 
 
 
