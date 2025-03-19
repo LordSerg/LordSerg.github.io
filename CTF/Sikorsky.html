@@ -19,12 +19,14 @@
 	            <p>As an input data we have pretext:</p>
 	            <p><b style="font-size: 30px">"</b><i>These kittens clearly want to say something, listen up.</i><b style="font-size: 30px">"</b></p>
 	            <p>And a video file:</p>
-                <div style="text-align: center;">
-	                <video width=100% height=100% controls>
-		                <source src="Sikorsky/TalkingCats/talk.mp4" type="video/mp4">
-		                Your browser does not support the video tag.
-	                </video>
-                </div>
+				<div class="box3">
+					<div style="text-align: center;">
+						<video width=100% height=100% controls>
+							<source src="Sikorsky/TalkingCats/talk.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
                 <hr style="width:20%;text-align:center;">
 	            <h2 style="text-align: center;">Solution</h2>
                 <hr style="width:20%;text-align:center;">
@@ -42,11 +44,11 @@
 	            <p>Which leads to 126 pares.</p>
 	            <p>And knowing full well that each character consists of 8 bits we get to the conclusion that there are not enough cat pictures.</p>
 	            <p>But anyway I gave this result a try and got this using online [<a href="https://www.rapidtables.com/convert/number/binary-to-ascii.html">bin to text</a>] converter:</p>
-                <img src="Sikorsky/TalkingCats/talk1.jpg" style="width: 100%; height: 100%;">
+                <div class="box3"><img src="Sikorsky/TalkingCats/talk1.jpg" style="width: 100%; height: 100%;"></div>
 	            <p>Great! We got the first letter correct!</p>
 	            <p>Now the question is: timing. How long should be time interval  to look at a cat picture?</p>
 	            <p>Using some video editor i splitted the second part of the video in such way that every other different frame has a visible duration time. The point was to see, how random these intervals of each frame:</p>
-				<img src="Sikorsky/TalkingCats/talk2.jpg" style="width: 100%; height: 100%;">
+				<div class="box3"><img src="Sikorsky/TalkingCats/talk2.jpg" style="width: 100%; height: 100%;"></div>
 	            <p>Here I noticed that there were only three types of delay:</p>
 	            <ul>
 		            <li>1/3 of a second</li>
@@ -57,7 +59,7 @@
 	            <p>Doing calculations:</p>
 	            <p>Now I have 76 binary pares which is 152 bits = 19 characters</p>
 	            <p>Perfect:</p>
-				<img src="Sikorsky/TalkingCats/talk3.jpg" style="width:100%; height: 100%;">
+				<div class="box3"><img src="Sikorsky/TalkingCats/talk3.jpg" style="width:100%; height: 100%;"></div>
 	            <p>Bingo!</p>
 				<p style="background-color: lightgray;">sikorsky{rusni_...}</p>
             </div>
