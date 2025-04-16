@@ -1,13 +1,37 @@
+:root{
+	--backgr: #F5EEDC;
+	--text: #27548A;
+	--text-selected: #000000;
+	--text-selected-bckgr: #b81e1e4b;
+	--link: #d6952c;
+	--big-text: #000000;
+	--text-hover: #F5EEDC;
+}
+
+::-moz-selection { /* Code for Firefox */
+	color: var(--text-selected);
+	background: var(--text-selected-bckgr);
+}
+  
+::selection {
+	color: var(--text-selected);
+	background: var(--text-selected-bckgr);
+}
+
 body {
-	background-color: #777777;
+	background-color: var(--backgr);
 	font-family: "Lucida Console", "Courier New", monospace;
-	color: #000000;
+	color: var(--text);
 	font-weight: 1000;
 	font-size: 20px;
 }
 
 h1,h2,h3,h4,h5{
-	color: #0000ff;
+	color: var(--big-text);
+}
+
+b{
+	color: var(--big-text);
 }
 
 .box {
@@ -52,13 +76,13 @@ div{
 }
 
 a {
-	color: #ffffff;
+	color: var(--link);
 	text-decoration: none;
 }
 
 .biglinks a {
 	display: block;
-	color: #ffffff;
+	color: var(--link);
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -66,6 +90,6 @@ a {
 
 /* Links - change color on hover */
 a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: var(--text-selected-bckgr);
+  color: var(--text-selected);
 }
