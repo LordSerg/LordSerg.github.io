@@ -6,25 +6,46 @@
   </head>
   <body>
 	<script>
+		function leapYear(year)
+		{
+			return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+		}
       // create a function to update the date and time
       function updateDateTime() {
         // create a new `Date` object
         const now = new Date();
-		const brth = new Date('2001-05-08T08:15:00');
+		const brth = new Date('2001-05-08T08:00:00');
 
         // get the current date and time as a string
+
+		
         time = (now-brth);
-		const years = Math.floor(time/(1000*60*60*24*365))
+		years = Math.floor(time/(1000*60*60*24*365))
 		time = time - years*(1000*60*60*24*365)
-		const days = Math.floor(time/(1000*60*60*24))
+		days = Math.floor(time/(1000*60*60*24))
 		time = time - days*(1000*60*60*24)
-		const hours = Math.floor(time/(1000*60*60))
+		hours = Math.floor(time/(1000*60*60))
 		time = time - hours*(1000*60*60)
-		const minutes = Math.floor(time/(1000*60))
+		minutes = Math.floor(time/(1000*60))
 		time = time - minutes*(1000*60)
-		const seconds = Math.floor(time/1000)
+		seconds = Math.floor(time/1000)
+
+		//count all leap years
+		leap = -1;//bc we don't count 2000 year
+		for(i = 2000/*brth.getFullYear()*/;i<=now.getFullYear();i+=4)
+		{
+			if(leapYear(i))
+				leap++;
+		}
+		days-=leap;
+		if(days<0)
+		{
+			days+=365
+			years--
+		}
         // update the `textContent` property of the `span` element with the `id` of `datetime`
         document.querySelector('#datetime').textContent = years + ' years, '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds';
+		//console.log(years + ' years, '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds')
       }
 
       // call the `updateDateTime` function every second
